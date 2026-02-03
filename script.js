@@ -810,7 +810,7 @@ async function sendOrderToTelegram(order) {
             ` • ${item.name} × ${item.quantity} = ${item.price * item.quantity} ₽`
         ).join('\n');
 
-        const message = `🛒 НОВЫЙ ЗАКАЗ LOKAL BOX
+        const message = `🛒 НОВЫЙ ЗАКАЗ LOCAL BOX
 📦 Заказ №: ${order.id}
 💰 Сумма: ${order.total} ₽
 👤 Имя: ${order.customerName}
@@ -1118,7 +1118,7 @@ async function sendPreorderToTelegram(preorder) {
             ` • ${item.name} × ${item.quantity} = ${item.price * item.quantity} ₽`
         ).join('\n');
 
-        const message = `📋 НОВЫЙ ПРЕДЗАКАЗ LOKAL BOX
+        const message = `📋 НОВЫЙ ПРЕДЗАКАЗ LOCAL BOX
 📦 Предзаказ №: ${preorder.id}
 💰 Сумма: ${preorder.total} ₽
 👤 Имя: ${preorder.name}
@@ -1414,5 +1414,6 @@ const themeObserver = new MutationObserver((mutations) => {
 themeObserver.observe(document.documentElement, {
     attributes: true
 });
+
 
 window.addEventListener('resize', fixDarkThemeMobile);
