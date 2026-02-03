@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOKAL BOX - Локальные бренды Петрозаводска</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="scrollIndicator"></div>
+
+    <div class="notification" id="notification">
+        <span>Товар добавлен в корзину!</span>
+    </div>
+
+    <!-- Кнопка открытия корзины на мобильных -->
+    <button class="mobile-cart-fab" id="mobileCartFab">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count-fab" id="cartCountFab">0</span>
+    </button>
+
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">LOKAL BOX</a>
+            <nav class="desktop-nav">
+                <div class="nav-items-wrapper">
+                    <a href="#gl" class="nav-item">Главная</a>
+                    <a href="#how" class="nav-item">Как это работает</a>
+                    <a href="#boxes" class="nav-item">Боксы</a>
+                    <a href="#brands" class="nav-item">Бренды</a>
+                    <a href="#reviews" class="nav-item">Отзывы</a>
+                    <a href="#faq" class="nav-item">FAQ</a>
+                </div>
+                <div class="nav-actions">
+                    <div class="cart-container">
+                        <button class="cart-toggle" id="cartToggle" aria-label="Корзина">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                        <div class="cart-dropdown" id="cartDropdown">
+                            <div class="cart-header">
+                                <h4>Корзина</h4>
+                                <button class="close-cart" id="closeCart">&times;</button>
+                            </div>
+                            <div class="cart-items-wrapper">
+                                <div class="cart-items" id="cartItems">
+                                    <div class="empty-cart">Корзина пуста</div>
+                                </div>
+                            </div>
+                            <div class="cart-footer">
+                                <div class="cart-total">
+                                    <span>Итого:</span>
+                                    <span id="cartTotal">0 ₽</span>
+                                </div>
+                                <button class="btn btn-small" id="checkoutBtn">Оплатить</button>
+                                <!-- Кнопка предзаказа в десктопной корзине -->
+                                <div class="preorder-btn-container">
+                                    <button class="btn-preorder-small" id="preorderBtnDesktop">Предзаказ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                        <i class="fas fa-sun theme-icon sun-icon"></i>
+                        <i class="fas fa-moon theme-icon moon-icon"></i>
+                    </button>
+                </div>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Мобильное меню справа на 2/3 экрана -->
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <h3>LOKAL BOX</h3>
+                <button class="close-menu" id="closeMenu">&times;</button>
+            </div>
+            <div class="mobile-nav-content">
+                <a href="#gl" class="mobile-nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
+                </a>
+                <a href="#how" class="mobile-nav-link">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Как это работает</span>
+                </a>
+                <a href="#boxes" class="mobile-nav-link">
+                    <i class="fas fa-box"></i>
+                    <span>Боксы</span>
+                </a>
+                <a href="#brands" class="mobile-nav-link">
+                    <i class="fas fa-tags"></i>
+                    <span>Бренды</span>
+                </a>
+                <a href="#reviews" class="mobile-nav-link">
+                    <i class="fas fa-star"></i>
+                    <span>Отзывы</span>
+                </a>
+                <a href="#faq" class="mobile-nav-link">
+                    <i class="fas fa-question"></i>
+                    <span>FAQ</span>
+                </a>
+                <div class="mobile-nav-cart" id="mobileCartBtn">
+                    <a href="#" class="mobile-nav-link cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Корзина</span>
+                        <span class="cart-count-mobile" id="mobileCartCount">0</span>
+                    </a>
+                </div>
+                <button class="theme-toggle mobile-theme" id="mobileThemeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Сменить тему</span>
+                </button>
+            </div>
+        </nav>
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    </header>
+
+    <main>
+        <!-- Hero секция с параллакс эффектом -->
+        <section class="hero" id="gl">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">LOKAL BOX</h1>
+                    <p class="hero-subtitle">Поддерживаем малый бизнес и находим уникальные вещи каждый месяц.</p>
+                    <a href="#boxes" class="btn hero-btn">Начать подписку</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="how" class="section slide-up">
+            <div class="container">
+                <h2 class="section-title">Как это работает</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">📦</div>
+                        <h3>Выберите бокс</h3>
+                        <p>Стандарт, Премиум или VIP</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">🎁</div>
+                        <h3>Получите коробку</h3>
+                        <p>От 4 до 8 уникальных товаров</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">✨</div>
+                        <h3>Наслаждайтесь</h3>
+                        <p>Открывайте сюрпризы каждый месяц</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="boxes" class="section bg-light slide-up">
+            <div class="container">
+                <h2 class="section-title">Выберите бокс</h2>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-badge">Популярный</div>
+                        <div class="card-image">
+                            <img src="images/box-starter.jpg" alt="Стандарт бокс" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>Стандарт</h3>
+                            <div class="price">990 ₽</div>
+                            <div class="box-info">
+                                <p>• 4-5 товаров</p>
+                                <p>• Базовые локальные бренды</p>
+                                <p>• Открытка с историей</p>
+                            </div>
+                            <div class="subscription-options">
+                                <button class="btn btn-small add-to-cart" data-id="1" data-name="Стандарт (1 месяц)"
+                                    data-price="990" data-image="images/box-starter.jpg">1 месяц</button>
+                                <button class="btn btn-small add-to-cart" data-id="4" data-name="Стандарт (3 месяца)"
+                                    data-price="2673" data-image="images/box-starter.jpg">3 месяца (-10%)</button>
+                                <button class="btn btn-small add-to-cart" data-id="7" data-name="Стандарт (6 месяцев)"
+                                    data-price="5049" data-image="images/box-starter.jpg">6 месяцев (-15%)</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-badge">Выгодный</div>
+                        <div class="card-image">
+                            <img src="images/box-premium.jpg" alt="Премиум бокс" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>Премиум</h3>
+                            <div class="price">1 790 ₽</div>
+                            <div class="box-info">
+                                <p>• 6-7 товаров</p>
+                                <p>• Премиум бренды</p>
+                                <p>• Эксклюзивные вещи</p>
+                                <p>• Подарочная упаковка</p>
+                            </div>
+                            <div class="subscription-options">
+                                <button class="btn btn-small add-to-cart" data-id="2" data-name="Премиум (1 месяц)"
+                                    data-price="1790" data-image="images/box-premium.jpg">1 месяц</button>
+                                <button class="btn btn-small add-to-cart" data-id="5" data-name="Премиум (3 месяца)"
+                                    data-price="4833" data-image="images/box-premium.jpg">3 месяца (-10%)</button>
+                                <button class="btn btn-small add-to-cart" data-id="8" data-name="Премиум (6 месяцев)"
+                                    data-price="9122" data-image="images/box-premium.jpg">6 месяцев (-15%)</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-badge">Элитный</div>
+                        <div class="card-image">
+                            <img src="images/box-vip.jpg" alt="VIP бокс" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>VIP</h3>
+                            <div class="price">2 990 ₽</div>
+                            <div class="box-info">
+                                <p>• 8+ товаров</p>
+                                <p>• Люкс бренды</p>
+                                <p>• Ручная работа</p>
+                                <p>• VIP упаковка + сюрприз</p>
+                            </div>
+                            <div class="subscription-options">
+                                <button class="btn btn-small add-to-cart" data-id="3" data-name="VIP (1 месяц)"
+                                    data-price="2990" data-image="images/box-vip.jpg">1 месяц</button>
+                                <button class="btn btn-small add-to-cart" data-id="6" data-name="VIP (3 месяца)"
+                                    data-price="8073" data-image="images/box-vip.jpg">3 месяца (-10%)</button>
+                                <button class="btn btn-small add-to-cart" data-id="9" data-name="VIP (6 месяцев)"
+                                    data-price="15246" data-image="images/box-vip.jpg">6 месяцев (-15%)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="brands" class="section slide-up">
+            <div class="container">
+                <h2 class="section-title">Наши бренды</h2>
+                <div class="brands-grid">
+                    <div class="brand animated-brand">
+                        <div class="brand-image">
+                            <img src="images/brand-hleb.jpg" alt="Хлебная история - домашняя выпечка" loading="lazy"
+                                class="brand-img">
+                        </div>
+                        <div class="brand-content">
+                            <h4>Хлебная история</h4>
+                            <p>Домашняя выпечка</p>
+                        </div>
+                    </div>
+                    <div class="brand animated-brand">
+                        <div class="brand-image">
+                            <img src="images/brand-glina.jpg" alt="Глина и Огонь - ручная керамика" loading="lazy"
+                                class="brand-img">
+                        </div>
+                        <div class="brand-content">
+                            <h4>Глина и Огонь</h4>
+                            <p>Ручная керамика</p>
+                        </div>
+                    </div>
+                    <div class="brand animated-brand">
+                        <div class="brand-image">
+                            <img src="images/brand-syr.jpg" alt="Карельский сыр - фермерские сыры" loading="lazy"
+                                class="brand-img">
+                        </div>
+                        <div class="brand-content">
+                            <h4>Карельский сыр</h4>
+                            <p>Фермерские сыры</p>
+                        </div>
+                    </div>
+                    <div class="brand animated-brand">
+                        <div class="brand-image">
+                            <img src="images/brand-olen.jpg" alt="Северный олень - мясные деликатесы" loading="lazy"
+                                class="brand-img">
+                        </div>
+                        <div class="brand-content">
+                            <h4>Северный олень</h4>
+                            <p>Мясные деликатесы</p>
+                        </div>
+                    </div>
+                    <div class="brand animated-brand">
+                        <div class="brand-image">
+                            <img src="images/brand-candle.jpg" alt="Свеча Карелии - ароматические свечи" loading="lazy"
+                                class="brand-img">
+                        </div>
+                        <div class="brand-content">
+                            <h4>Свеча Карелии</h4>
+                            <p>Ароматические свечи</p>
+                        </div>
+                    </div>
+                    <div class="brand animated-brand">
+                        <div class="brand-image">
+                            <div class="more-brands">+10</div>
+                        </div>
+                        <div class="brand-content">
+                            <h4>Другие бренды</h4>
+                            <p>Местные производители</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section id="reviews" class="reviews section slide-up">
+            <div class="container">
+                <div class="reviews-header">
+                    <h2>Что говорят подписчики</h2>
+                    <p class="reviews-subtitle">Истории тех, кто уже открывает для себя локальные бренды</p>
+                </div>
+
+                <div class="reviews-container">
+                    <!-- Отзыв 1 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="avatar">АК</div>
+                            <div>
+                                <h4>Анна К.</h4>
+                                <p>Подписчик VIP бокса 8 месяцев</p>
+                            </div>
+                        </div>
+                        <p>«Каждый месяц — это праздник! В прошлой коробке была керамическая кружка ручной работы,
+                            которая стала моей любимой. Открывать такие сюрпризы — настоящее удовольствие.»</p>
+                    </div>
+
+                    <!-- Отзыв 2 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="avatar">МС</div>
+                            <div>
+                                <h4>Михаил С.</h4>
+                                <p>Подписчик Стандарт бокса</p>
+                            </div>
+                        </div>
+                        <p>«Отличный способ поддерживать местных производителей. Качество товаров всегда на высоте,
+                            а в описаниях чувствуется история и душа. Рекомендую всем, кто ценит уникальное.»</p>
+                    </div>
+
+                    <!-- Отзыв 3 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="avatar">ЕЛ</div>
+                            <div>
+                                <h4>Елена Л.</h4>
+                                <p>Подписчик Премиум бокса 5 месяцев</p>
+                            </div>
+                        </div>
+                        <p>«Подарила подписку себе на день рождения — лучший подарок! В каждой коробке есть что-то
+                            особенное,
+                            чего не найдёшь в обычных магазинах. Ощущение, что участвуешь в большом добром деле.»</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Новая секция FAQ -->
+        <section id="faq" class="section bg-light slide-up">
+            <div class="container">
+                <h2 class="section-title">Часто задаваемые вопросы</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Как часто я буду получать боксы?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Вы будете получать бокс ежемесячно в выбранную вами дату. Вы можете изменить дату
+                                доставки или приостановить подписку в любой момент.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Могу ли я отменить подписку?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да, вы можете отменить подписку в любой момент. При отмене в течение первых 14 дней мы
+                                вернем полную стоимость, если бокс еще не был отправлен.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Какой срок доставки?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Доставка по Петрозаводску занимает 1-2 рабочих дня. По Карелии — 2-4 рабочих дня. По
+                                России — от 3 до 10 рабочих дней в зависимости от региона.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Что делать, если товар в боксе мне не подошел?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Мы с радостью заменим товар, если он вам не подошел. Свяжитесь с нашей поддержкой в
+                                течение 7 дней после получения бокса, и мы решим этот вопрос.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Можно ли заказать бокс в подарок?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Конечно! При оформлении заказа вы можете указать, что это подарок, и мы добавим
+                                поздравительную открытку с вашим текстом. Также доступны подарочные сертификаты.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>LOKAL BOX</h3>
+                    <p>Поддержка локальных брендов Петрозаводска</p>
+                    <p>Для сотрудничества можно обращаться по почте.</p>
+                </div>
+                <div class="footer-contact">
+                    <p>г. Петрозаводск</p>
+                    <a href="mailto:hello@lokalbox.ru">hello@lokalbox.ru</a>
+                    <a href="tel:+78001234567">8 800 123-45-67</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Мы в соцсетях</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2026 LOKAL BOX.</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно корзины на весь экран для мобильных -->
+    <div class="fullscreen-cart-modal" id="fullscreenCartModal">
+        <div class="fullscreen-cart-content">
+            <div class="fullscreen-cart-header">
+                <h3>Корзина</h3>
+                <button class="close-fullscreen-cart" id="closeFullscreenCart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="fullscreen-cart-body">
+                <div class="fullscreen-cart-items" id="fullscreenCartItems">
+                    <div class="empty-cart">Корзина пуста</div>
+                </div>
+            </div>
+            <div class="fullscreen-cart-footer">
+                <div class="fullscreen-cart-total">
+                    <span>Итого:</span>
+                    <span id="fullscreenCartTotal">0 ₽</span>
+                </div>
+                <button class="btn btn-block" id="fullscreenCheckoutBtn">Оплатить</button>
+                <!-- Кнопка предзаказа в мобильной корзине -->
+                <button class="btn-preorder-small" id="preorderBtnMobile">Предзаказ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно оплаты -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-modal-content">
+            <div class="payment-header">
+                <h3>Оформление заказа</h3>
+                <button class="close-payment" id="closePayment">&times;</button>
+            </div>
+            <div class="payment-body">
+                <div class="order-summary">
+                    <h4>Ваш заказ:</h4>
+                    <div id="paymentItems"></div>
+                    <div class="order-total">
+                        <span>Итого к оплате:</span>
+                        <span id="paymentTotal">0 ₽</span>
+                    </div>
+                </div>
+                <div class="payment-form">
+                    <h4>Данные для оплаты</h4>
+                    <div class="payment-card">
+                        <div class="card-front">
+                            <div class="card-logo">💳</div>
+                            <div class="card-number">
+                                <input type="text" placeholder="Номер карты" maxlength="19" id="cardNumber">
+                            </div>
+                            <div class="card-details">
+                                <input type="text" placeholder="ММ/ГГ" maxlength="5" id="cardExpiry">
+                                <input type="text" placeholder="CVV" maxlength="3" id="cardCvv">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Имя на карте" id="cardName">
+                    <div class="payment-buttons">
+                        <button class="btn btn-block" id="processPayment">Оплатить</button>
+                        <button class="btn btn-block btn-test" id="testPaymentModalBtn">Тест Telegram</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно предзаказа -->
+    <div class="preorder-modal" id="preorderModal">
+        <div class="preorder-modal-content">
+            <div class="preorder-header">
+                <h3>Предзаказ</h3>
+                <button class="close-preorder" id="closePreorder">&times;</button>
+            </div>
+            <div class="preorder-body">
+                <!-- Форма предзаказа -->
+                <div class="preorder-form-container" id="preorderFormContainer">
+                    <div class="preorder-summary">
+                        <h4>Ваш заказ:</h4>
+                        <div class="preorder-items" id="preorderItems"></div>
+                        <div class="preorder-total">
+                            <span>Итого:</span>
+                            <span id="preorderTotal">0 ₽</span>
+                        </div>
+                    </div>
+                    
+                    <form class="preorder-form" id="preorderForm">
+                        <div class="form-group">
+                            <label for="preorderName">Имя и Фамилия *</label>
+                            <input type="text" id="preorderName" placeholder="Иван Иванов" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="preorderEmail">Электронная почта *</label>
+                            <input type="email" id="preorderEmail" placeholder="ivan@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="preorderPhone">Телефон *</label>
+                            <input type="tel" id="preorderPhone" placeholder="+7 (999) 123-45-67" required>
+                        </div>
+                    </form>
+                    
+                    <div class="preorder-buttons">
+                        <button type="submit" form="preorderForm" class="btn-preorder" id="submitPreorder">
+                            <i class="fas fa-paper-plane"></i>
+                            Отправить предзаказ
+                        </button>
+                        <button class="btn-preorder btn-test-telegram" id="testTelegramBtn">
+                            <i class="fab fa-telegram"></i>
+                            Тест Telegram
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Сообщение об успешной отправке -->
+                <div class="preorder-success" id="preorderSuccess">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>Предзаказ успешно отправлен!</h4>
+                    <p>Спасибо за ваш предзаказ. Мы свяжемся с вами в ближайшее время для подтверждения заказа.</p>
+                    <button class="btn-preorder" id="closePreorderSuccess">
+                        <i class="fas fa-times"></i>
+                        Закрыть
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
